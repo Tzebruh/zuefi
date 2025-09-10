@@ -20,7 +20,7 @@ int main(int argc, char** argv) {
     int exit = 0;
     while (exit == 0) {
         printf("> ");
-        char* input = readLine();
+        char* input = readLine(); // Read line function from ZUEFI
         if (strcmp(input, "exit") == 0) exit = 1;
         else printf("%s\r\n", input);
         free(input);
@@ -29,3 +29,7 @@ int main(int argc, char** argv) {
     return 0;
 }
 ```
+
+# uefirun
+
+The `uefirun` script takes an efi file input and runs it with QEMU. For it to work, you need QEMU (obviously) and OVMF. The script doesn't care from what directory it's run, so you can copy it to a PATH directory if you wish. Make sure you use it correctly because I threw the script together in like 5 minutes. Example syntax is `./uefirun main.efi`. If it's in the PATH it's `uefirun main.efi`.
